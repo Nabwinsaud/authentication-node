@@ -9,7 +9,12 @@ const app = express();
 
 // CORS POLICY
 // app.use(cors());
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  })
+);
 
 // connect db
 const DATABASE_URL = process.env.DATABASE_URL;
@@ -20,7 +25,7 @@ const port = process.env.PORT || 3000;
 // JSON DATA
 app.use(express.json());
 // URLEXTENDED
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // LOAD routes
 app.use("/api/v1/user", users);
 
