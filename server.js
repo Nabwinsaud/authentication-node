@@ -8,7 +8,8 @@ dotenv.config();
 const app = express();
 
 // CORS POLICY
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // connect db
 const DATABASE_URL = process.env.DATABASE_URL;

@@ -3,6 +3,10 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import transporter from "../config/emailConfig.js";
 export default class userController {
+  // get route for hello
+  async getInformation(req, res) {
+    res.send({ message: "Hello Mr stranger", status: "success" });
+  }
   async userRegistration(req, res) {
     const { name, email, password, confirm_password, checkbox } = req.body;
 
