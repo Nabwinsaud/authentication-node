@@ -11,7 +11,12 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: "*",
+    // origin: "*",
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://authentication-node-react-pro.netlify.app",
+    ],
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
@@ -25,7 +30,7 @@ const port = process.env.PORT || 3000;
 // JSON DATA
 app.use(express.json());
 // URLEXTENDED
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 // LOAD routes
 app.use("/api/v1/user", users);
 

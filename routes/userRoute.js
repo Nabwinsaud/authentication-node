@@ -8,7 +8,18 @@ import cors from "cors";
 const users = new userController();
 
 // Router level middleware
-router.use(cors());
+// router.use(cors());
+app.use(
+  cors({
+    // origin: "*",
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://authentication-node-react-pro.netlify.app",
+    ],
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  })
+);
 router.use("/changePassword", checkUserAuth);
 
 // stayLogin middleware
