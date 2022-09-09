@@ -2,24 +2,12 @@ import express from "express";
 import userController from "../controllers/userController.js";
 import checkUserAuth from "../middleware/authMiddleware.js";
 const router = express.Router();
-import cors from "cors";
 
 // object instance for userController
 const users = new userController();
 
 // Router level middleware
-// router.use(cors());
-app.use(
-  cors({
-    // origin: "*",
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:3000",
-      "https://authentication-node-react-pro.netlify.app",
-    ],
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-  })
-);
+
 router.use("/changePassword", checkUserAuth);
 
 // stayLogin middleware

@@ -9,17 +9,12 @@ const app = express();
 
 // CORS POLICY
 // app.use(cors());
-app.use(
-  cors({
-    // origin: "*",
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:3000",
-      "https://authentication-node-react-pro.netlify.app",
-    ],
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-  })
-);
+// app.use();
+app.use(cors({ origin: "*" }));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 // connect db
 const DATABASE_URL = process.env.DATABASE_URL;
