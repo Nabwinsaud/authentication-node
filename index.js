@@ -11,13 +11,15 @@ const app = express();
 // app.use(cors());
 // app.use();
 app.use(cors({ origin: "*" }));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 
 // connect db
-const DATABASE_URL = process.env.DATABASE_URL;
+// const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL =
+  "mongodb+srv://nabwin:fZssV0N0DA0EyNvC@cluster0.jaimm2a.mongodb.net/?retryWrites=true&w=majority";
 connectDB(DATABASE_URL);
 // PORT
 const port = process.env.PORT || 3000;
